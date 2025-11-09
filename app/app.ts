@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 const server = http.createServer((req, res) => {
   const url = req.url ?? '';
   const method = req.method;
+
   if (url === '/api/users') {
     switch (method) {
       case 'GET':
@@ -111,7 +112,12 @@ const server = http.createServer((req, res) => {
     }
     res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify('Invalid id'));
+    return;
   }
+
+  res.writeHead(404, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify('Page not Found'));
+  return;
 });
 
 server.listen(PORT, () => {
