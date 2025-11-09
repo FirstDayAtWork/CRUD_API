@@ -1,7 +1,7 @@
 import path from 'node:path';
 
 export default {
-  entry: path.resolve(import.meta.dirname, './src/index.ts'),
+  entry: path.resolve(import.meta.dirname, './app/app.ts'),
   target: 'node',
   mode: 'production',
   module: {
